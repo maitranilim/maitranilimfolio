@@ -1,11 +1,7 @@
 # Nilim Maitra — portfolio
 
-This is my portfolio site. It brings the projects, visual experiments, and work history I want someone to see into one place.
+This repository contains my static portfolio site. I am revising the copy and project selection. The [published version](https://broad-art-3e62.maitranilim.workers.dev/) still has older descriptions, so the individual project READMEs are the better source for current work.
 
-[Open the portfolio](https://broad-art-3e62.maitranilim.workers.dev/) · [Jump to the site files](nilim-portfolio/) · [Read the site notes](nilim-portfolio/README.md)
+The site files are in [`nilim-portfolio/`](nilim-portfolio/). It is an HTML, CSS, and JavaScript build with a focused recruiter view at `?view=recruiter` and a browser-side refresh of public GitHub data. There is no root-level build step.
 
-The site is a static HTML, CSS, and JavaScript build. It pulls public repository data from GitHub in the browser and has a focused recruiter view at `?view=recruiter`. I kept the repo data live so the project list can change as the work changes.
-
-If you are looking through my code, start with [Moodboard AI](https://github.com/maitranilim/moodboard-ai) for search and visual systems, [Aural](https://github.com/maitranilim/aural-audio-engine) for a larger product flow, and [Make-or-Break](https://github.com/maitranilim/make-or-break) for a small interaction experiment.
-
-The site itself lives in `nilim-portfolio/`; there is no root-level build step.
+For current work, start with [Moodboard AI](https://github.com/maitranilim/moodboard-ai), [Aural](https://github.com/maitranilim/aural-audio-engine), and [Make-or-Break](https://github.com/maitranilim/make-or-break).
