@@ -1,6 +1,6 @@
 const SITE = {
   githubUser: "maitranilim",
-  publicUrl: "https://broad-art-3e62.maitranilim.workers.dev/",
+  publicUrl: "https://nilimmaitra.vercel.app/",
   email: "nishan.engg@outlook.com",
 };
 
