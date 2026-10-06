@@ -1,313 +1,24 @@
-const PROFILE = {
-  name: "Nilim Maitra",
+const SITE = {
   githubUser: "maitranilim",
-  githubUrl: "https://github.com/maitranilim",
-  linkedinUrl: "https://www.linkedin.com/in/nilim-maitra-608b952b7/",
   publicUrl: "https://broad-art-3e62.maitranilim.workers.dev/",
-  pinnedProjects: [
-    {
-      name: "make-or-break",
-      title: "Brickflux",
-      description: "Canvas game where a Builder and Breaker compete for the grid, with seeded challenge links.",
-      homepage: "https://brickflux.vercel.app/",
-    },
-    {
-      name: "aural-audio-engine",
-      title: "Aural",
-      description: "Maps a song from genre to subgenre to microgenre, with data sources and confidence shown.",
-      homepage: "https://github.com/maitranilim/aural-audio-engine",
-    },
-    {
-      name: "matchbox-simulator",
-      title: "Matchbox Simulator",
-      description: "3D browser sandbox for fire, physics, and object interactions.",
-      homepage: "https://matchbox-simulator.vercel.app",
-    },
-    {
-      name: "moodboard-ai",
-      title: "Moodboard AI",
-      description: "Type a feeling and get a moodboard, with the page colours derived from the mood.",
-      homepage: "https://moodboard-ai-delta.vercel.app",
-    },
-  ],
-  fallbackRepos: [
-    {
-      name: "make-or-break",
-      description: "Canvas game where a Builder and Breaker compete for the grid.",
-      html_url: "https://github.com/maitranilim/make-or-break",
-      homepage: "https://brickflux.vercel.app/",
-      language: "JavaScript",
-      size: 1000,
-      stargazers_count: 0,
-      fork: false,
-      pushed_at: "2026-09-30T18:38:39Z",
-      topics: ["canvas", "game", "javascript"],
-    },
-    {
-      name: "aural-audio-engine",
-      description: "Genre, subgenre, and microgenre lineage for any song.",
-      html_url: "https://github.com/maitranilim/aural-audio-engine",
-      homepage: "",
-      language: "TypeScript",
-      size: 1000,
-      stargazers_count: 0,
-      fork: false,
-      pushed_at: "2026-10-01T13:49:13Z",
-      topics: ["react", "typescript", "audio"],
-    },
-    {
-      name: "matchbox-simulator",
-      description: "3D browser sandbox for fire, physics, and object interactions.",
-      html_url: "https://github.com/maitranilim/matchbox-simulator",
-      homepage: "https://matchbox-simulator.vercel.app",
-      language: "JavaScript",
-      size: 1000,
-      stargazers_count: 0,
-      fork: false,
-      pushed_at: "2026-09-26T18:01:37Z",
-      topics: ["threejs", "physics", "3d"],
-    },
-    {
-      name: "moodboard-ai",
-      description: "Type a feeling and get a moodboard.",
-      html_url: "https://github.com/maitranilim/moodboard-ai",
-      homepage: "https://moodboard-ai-delta.vercel.app",
-      language: "JavaScript",
-      size: 940,
-      stargazers_count: 0,
-      fork: false,
-      pushed_at: "2026-09-25T15:27:01Z",
-      topics: ["design", "frontend", "javascript"],
-    },
-    {
-      name: "memeception",
-      description: "Pick a category, hit Gimme Meme, and save the ones you want to revisit.",
-      html_url: "https://github.com/maitranilim/memeception",
-      homepage: "https://memeception.vercel.app",
-      language: "JavaScript",
-      size: 1100,
-      stargazers_count: 0,
-      fork: false,
-      pushed_at: "2026-09-29T19:55:51Z",
-      topics: ["reddit-api", "motion", "javascript"],
-    },
-  ],
+  email: "nishan.engg@outlook.com",
 };
-
-const BUILDING_NOW = [
-  {
-    label: "Playful, motion-led web apps",
-    detail: "Brickflux · Matchbox Simulator · Memeception",
-    kind: "Interactive products",
-  },
-  {
-    label: "AI-directed visual systems",
-    detail: "Prompt craft · Art movements · Campaign direction",
-    kind: "Synthetic vision",
-  },
-  {
-    label: "UI/UX, 3D, and performance",
-    detail: "React · TypeScript · Three.js · Accessibility",
-    kind: "Product craft",
-  },
-];
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
-let activeRepos = PROFILE.fallbackRepos;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
 let toastTimer;
-let activeVisionIndex = 0;
-
-function escapeHtml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-function safeUrl(value, fallback) {
-  try {
-    const url = new URL(value);
-    return ["http:", "https:"].includes(url.protocol) ? url.href : fallback;
-  } catch {
-    return fallback;
-  }
-}
-
-function monthsSince(dateString) {
-  const then = new Date(dateString);
-  const now = new Date();
-  return Math.max(0, (now.getFullYear() - then.getFullYear()) * 12 + now.getMonth() - then.getMonth());
-}
-
-function scoreRepo(repo) {
-  const recency = Math.max(0, 18 - monthsSince(repo.pushed_at) * 0.7);
-  const codeVolume = Math.log10(Math.max(10, repo.size || 0)) * 4;
-  const shipped = repo.homepage ? 7 : 0;
-  const described = repo.description ? 2 : 0;
-  const social = Math.min(8, (repo.stargazers_count || 0) * 2);
-  const topics = Math.min(3, (repo.topics || []).length);
-  return recency + codeVolume + shipped + described + social + topics;
-}
-
-function formatRepoName(name) {
-  return name.replace(/[-_]/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
-}
-
-function formatRelativeDate(dateString) {
-  if (!dateString) return "Snapshot";
-  const months = monthsSince(dateString);
-  if (months === 0) return "This month";
-  if (months === 1) return "1 month ago";
-  if (months < 12) return `${months} months ago`;
-  const years = Math.floor(months / 12);
-  return years === 1 ? "1 year ago" : `${years} years ago`;
-}
+let visionIndex = 0;
 
 function showToast(message) {
   const toast = $("#toast");
   toast.textContent = message;
   toast.classList.add("is-visible");
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 2600);
-}
-
-function createProjectIcon(index, name) {
-  const icon = document.createElement("span");
-  const normalizedName = name.toLowerCase();
-  const iconClass = normalizedName.includes("meme")
-    ? "meme-icon"
-    : normalizedName.includes("aural") || normalizedName.includes("music")
-      ? "music-icon"
-      : "grid-icon";
-  icon.className = `project-icon ${iconClass}`;
-  icon.setAttribute("aria-hidden", "true");
-  if (iconClass !== "meme-icon") {
-    for (let i = 0; i < 4; i += 1) icon.appendChild(document.createElement("i"));
-  }
-  return icon;
-}
-
-function renderProjects(repos) {
-  const projectList = $("#project-list");
-  projectList.replaceChildren();
-
-  const projects = PROFILE.pinnedProjects.map((pinned) => {
-    const matchingRepo = repos.find((repo) => repo.name.toLowerCase() === pinned.name.toLowerCase());
-    return { ...matchingRepo, ...pinned };
-  });
-
-  projects.forEach((repo, index) => {
-    const row = document.createElement("a");
-    row.className = "project-row";
-    row.href = safeUrl(repo.homepage || repo.html_url, PROFILE.githubUrl);
-    row.target = "_blank";
-    row.rel = "noreferrer";
-
-    const text = document.createElement("span");
-    const title = document.createElement("strong");
-    const detail = document.createElement("small");
-    title.textContent = repo.title || formatRepoName(repo.name);
-    detail.textContent = repo.description || `${repo.language || "Web"} project · recently updated`;
-    text.append(title, detail);
-
-    const arrow = document.createElement("span");
-    arrow.className = "project-arrow";
-    arrow.textContent = "↗";
-
-    row.append(createProjectIcon(index, repo.name), text, arrow);
-    projectList.appendChild(row);
-  });
-}
-
-function inferFocus(repos) {
-  const weightedLanguages = new Map();
-  repos.forEach((repo, index) => {
-    if (!repo.language) return;
-    const weight = Math.max(1, 8 - index) + Math.max(0, 10 - monthsSince(repo.pushed_at));
-    weightedLanguages.set(repo.language, (weightedLanguages.get(repo.language) || 0) + weight);
-  });
-
-  const inferred = [...weightedLanguages.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .map(([language]) => language);
-
-  const defaults = ["JavaScript", "CSS", "HTML"];
-  return [...new Set([...inferred, ...defaults])].slice(0, 3);
-}
-
-function renderFocus(repos) {
-  const focusStack = $("#focus-stack");
-  focusStack.replaceChildren();
-
-  BUILDING_NOW.forEach((focus, index) => {
-    const card = document.createElement("article");
-    card.className = "focus-card";
-    card.innerHTML = `
-      <span class="focus-index">0${index + 1}</span>
-      <div>
-        <p>${escapeHtml(focus.kind)}</p>
-        <h3>${escapeHtml(focus.label)}</h3>
-        <span>${escapeHtml(focus.detail)}</span>
-      </div>
-      <div class="focus-meter"><span style="--meter: ${Math.max(58, 84 - index * 10)}%"></span></div>
-    `;
-    focusStack.appendChild(card);
-  });
-}
-
-function renderActivity(repos) {
-  const recentRepos = repos.filter((repo) => monthsSince(repo.pushed_at) <= 18);
-  const latestRepo = [...repos].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))[0];
-  const focus = inferFocus(repos);
-
-  $("#repo-count").textContent = String(recentRepos.length || repos.length);
-  $("#leading-language").textContent = focus[0] || "JavaScript";
-  $("#latest-push").textContent = latestRepo ? formatRelativeDate(latestRepo.pushed_at) : "Snapshot";
-}
-
-function renderNarrative(repos) {
-  const rankedRepos = repos
-    .filter((repo) => !repo.fork)
-    .sort((a, b) => scoreRepo(b) - scoreRepo(a));
-  activeRepos = rankedRepos.length ? rankedRepos : PROFILE.fallbackRepos;
-  renderProjects(activeRepos);
-  renderFocus(activeRepos);
-  renderActivity(activeRepos);
-}
-
-async function refreshGitHub({ announce = false } = {}) {
-  const button = $("#refresh-github");
-  const status = $("#source-status");
-  button.classList.add("is-loading");
-  status.textContent = "Syncing GitHub · LinkedIn verified";
-
-  try {
-    const response = await fetch(`https://api.github.com/users/${PROFILE.githubUser}/repos?per_page=100&sort=updated`, {
-      headers: { Accept: "application/vnd.github+json" },
-    });
-    if (!response.ok) throw new Error(`GitHub responded ${response.status}`);
-    const repos = await response.json();
-    renderNarrative(repos);
-    status.textContent = "GitHub live · LinkedIn verified";
-    if (announce) showToast("Narrative refreshed from live GitHub data.");
-  } catch (error) {
-    renderNarrative(PROFILE.fallbackRepos);
-    status.textContent = "GitHub snapshot · LinkedIn verified";
-    if (announce) showToast("Live GitHub is unavailable; verified snapshot retained.");
-    console.info("Using verified GitHub snapshot.", error);
-  } finally {
-    button.classList.remove("is-loading");
-  }
-}
-
-function recruiterUrl() {
-  const url = new URL(PROFILE.publicUrl);
-  url.searchParams.set("view", "recruiter");
-  return url.href;
+  toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 2400);
 }
 
 async function copyText(value) {
@@ -318,129 +29,319 @@ async function copyText(value) {
   const helper = document.createElement("textarea");
   helper.value = value;
   helper.setAttribute("readonly", "");
-  helper.style.position = "fixed";
-  helper.style.opacity = "0";
+  helper.style.cssText = "position:fixed;opacity:0";
   document.body.appendChild(helper);
   helper.select();
   document.execCommand("copy");
   helper.remove();
 }
 
-function openShareDialog(url, copied = true) {
-  $("#share-url").value = url;
-  $("#share-message").textContent = copied
-    ? "The recruiter URL has been copied. It opens a focused, mobile-friendly view of this page."
-    : "Copy the recruiter URL below. It opens a focused, mobile-friendly view of this page.";
-  $("#share-note").hidden = true;
-  const dialog = $("#share-dialog");
-  if (!dialog.open) dialog.showModal();
-}
+function initScrollEffects() {
+  const bar = $("#scroll-progress");
+  const header = $("#site-header");
+  const toTop = $("#to-top");
+  const timeline = $("#timeline");
+  const parallax = $$("[data-parallax]");
+  let ticking = false;
 
-function renderVisionDirection(index) {
-  const cards = $$(".vision-card");
-  activeVisionIndex = (index + cards.length) % cards.length;
-  const card = cards[activeVisionIndex];
-  const image = $("#vision-dialog-image");
-  const title = card.dataset.visionTitle;
-  const meta = card.dataset.visionMeta;
-  image.src = card.dataset.visionSrc;
-  image.alt = `${title} visual direction`;
-  $("#vision-dialog-title").textContent = title;
-  $("#vision-dialog-meta").textContent = meta;
-  $("#vision-dialog-position").textContent = `${String(activeVisionIndex + 1).padStart(2, "0")} / ${String(cards.length).padStart(2, "0")}`;
-}
+  function update() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const y = window.scrollY;
+    bar.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
+    header.classList.toggle("is-scrolled", y > 12);
+    toTop.classList.toggle("is-visible", y > 700);
 
-function openVisionDirection(card) {
-  renderVisionDirection($$(".vision-card").indexOf(card));
-  const dialog = $("#vision-dialog");
-  if (!dialog.open) dialog.showModal();
-}
-
-function navigateVision(direction) {
-  renderVisionDirection(activeVisionIndex + direction);
-}
-
-function handleVisionKeys(event) {
-  if (!$("#vision-dialog").open) return;
-  if (event.key === "ArrowLeft") {
-    event.preventDefault();
-    navigateVision(-1);
-  }
-  if (event.key === "ArrowRight") {
-    event.preventDefault();
-    navigateVision(1);
-  }
-}
-
-async function shareProfile() {
-  const url = recruiterUrl();
-  const shareData = {
-    title: `${PROFILE.name} · Software Developer`,
-    text: "A recruiter-friendly view of Nilim Maitra's shipped products, synthetic visual direction, and core expertise.",
-    url,
-  };
-
-  if (navigator.share && window.matchMedia("(max-width: 720px)").matches) {
-    try {
-      await navigator.share(shareData);
-      return;
-    } catch (error) {
-      if (error?.name === "AbortError") return;
+    if (!reducedMotion) {
+      parallax.forEach((node) => {
+        const speed = Number(node.dataset.parallax);
+        node.style.translate = `0 ${(y * speed).toFixed(1)}px`;
+      });
     }
+
+    if (timeline) {
+      const rect = timeline.getBoundingClientRect();
+      const progress = (window.innerHeight * 0.65 - rect.top) / rect.height;
+      timeline.style.setProperty("--tl", Math.max(0, Math.min(1, progress)).toFixed(3));
+    }
+    ticking = false;
   }
 
-  try {
-    await copyText(url);
-    openShareDialog(url, true);
-  } catch {
-    openShareDialog(url, false);
-  }
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    },
+    { passive: true },
+  );
+  window.addEventListener("resize", update);
+  toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" }));
+  update();
 }
 
-function setRecruiterView() {
-  const recruiterMode = new URLSearchParams(window.location.search).get("view") === "recruiter";
-  if (!recruiterMode) return;
-  document.body.classList.add("recruiter-view");
-  $$("[data-share-profile]").forEach((button) => {
-    button.setAttribute("aria-label", "Copy recruiter profile link");
-    const label = $("span", button);
-    if (label) label.textContent = "Copy profile link";
-    const textNode = [...button.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
-    if (textNode) textNode.textContent = " Copy profile link";
+function initReveal() {
+  const items = $$(".reveal");
+  if (reducedMotion || !("IntersectionObserver" in window)) {
+    items.forEach((item) => item.classList.add("is-in"));
+    return;
+  }
+  items.forEach((item) => {
+    const siblings = $$(".reveal", item.parentElement).filter((node) => node.parentElement === item.parentElement);
+    const index = siblings.indexOf(item);
+    item.style.setProperty("--d", `${Math.min(index, 5) * 70}ms`);
+  });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const target = entry.target;
+        target.classList.add("is-in");
+        observer.unobserve(target);
+        setTimeout(() => {
+          target.classList.remove("reveal", "is-in");
+          target.style.removeProperty("--d");
+        }, 1100);
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+  );
+  items.forEach((item) => observer.observe(item));
+}
+
+function initCountUp() {
+  const counters = $$("[data-count]");
+  if (reducedMotion || !("IntersectionObserver" in window)) return;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        const node = entry.target;
+        const target = Number(node.dataset.count);
+        const start = performance.now();
+        const duration = 1400;
+        function frame(now) {
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 4);
+          node.textContent = String(Math.round(target * eased));
+          if (t < 1) requestAnimationFrame(frame);
+        }
+        node.textContent = "0";
+        requestAnimationFrame(frame);
+      });
+    },
+    { threshold: 0.6 },
+  );
+  counters.forEach((node) => observer.observe(node));
+}
+
+function initActiveNav() {
+  const links = $$("[data-nav]");
+  const map = new Map(links.map((link) => [link.getAttribute("href").slice(1), link]));
+  if (!("IntersectionObserver" in window)) return;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((link) => link.classList.remove("is-active"));
+        map.get(entry.target.id)?.classList.add("is-active");
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px" },
+  );
+  map.forEach((_, id) => {
+    const section = document.getElementById(id);
+    if (section) observer.observe(section);
   });
 }
 
-function setMobileShareVisibility() {
-  const mobileShare = $(".mobile-share");
-  const visible = window.scrollY > 420;
-  document.body.classList.toggle("has-scrolled", visible);
-  mobileShare.tabIndex = visible ? 0 : -1;
-  mobileShare.setAttribute("aria-hidden", String(!visible));
+function initMenu() {
+  const toggle = $("#menu-toggle");
+  const nav = $("#nav");
+  function setOpen(open) {
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    nav.classList.toggle("is-open", open);
+  }
+  toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+  nav.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setOpen(false);
+  });
+}
+
+function initPointerEffects() {
+  $$(".spot").forEach((node) => {
+    node.addEventListener("pointermove", (event) => {
+      const rect = node.getBoundingClientRect();
+      node.style.setProperty("--mx", `${event.clientX - rect.left}px`);
+      node.style.setProperty("--my", `${event.clientY - rect.top}px`);
+    });
+  });
+
+  if (!finePointer || reducedMotion) return;
+
+  $$("[data-tilt]").forEach((node) => {
+    const host = node.parentElement;
+    host.addEventListener("pointermove", (event) => {
+      const rect = host.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      node.style.transform = `rotateY(${(x * 8).toFixed(2)}deg) rotateX(${(-y * 8).toFixed(2)}deg) translateZ(0)`;
+    });
+    host.addEventListener("pointerleave", () => {
+      node.style.transform = "";
+    });
+  });
+
+  $$("[data-magnetic]").forEach((node) => {
+    node.addEventListener("pointermove", (event) => {
+      const rect = node.getBoundingClientRect();
+      const x = event.clientX - rect.left - rect.width / 2;
+      const y = event.clientY - rect.top - rect.height / 2;
+      node.style.transform = `translate(${(x * 0.16).toFixed(1)}px, ${(y * 0.22).toFixed(1)}px)`;
+    });
+    node.addEventListener("pointerleave", () => {
+      node.style.transform = "";
+    });
+  });
+}
+
+function initFilters() {
+  const buttons = $$(".filter");
+  const cards = $$("#project-grid .card");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+      buttons.forEach((other) => {
+        const active = other === button;
+        other.classList.toggle("is-active", active);
+        other.setAttribute("aria-pressed", String(active));
+      });
+      cards.forEach((card) => {
+        const match = filter === "all" || card.dataset.cat.split(" ").includes(filter);
+        card.classList.toggle("is-hidden", !match);
+        if (match && !reducedMotion) {
+          card.animate(
+            [
+              { opacity: 0, transform: "translateY(14px) scale(0.98)" },
+              { opacity: 1, transform: "none" },
+            ],
+            { duration: 420, easing: "cubic-bezier(0.22, 0.8, 0.24, 1)" },
+          );
+        }
+      });
+    });
+  });
+}
+
+function relativeTime(dateString) {
+  const days = Math.floor((Date.now() - new Date(dateString).getTime()) / 86400000);
+  if (days < 1) return "Updated today";
+  if (days === 1) return "Updated yesterday";
+  if (days < 30) return `Updated ${days} days ago`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return months === 1 ? "Updated 1 month ago" : `Updated ${months} months ago`;
+  const years = Math.floor(months / 12);
+  return years === 1 ? "Updated 1 year ago" : `Updated ${years} years ago`;
+}
+
+async function initRepoStatus() {
+  const cards = $$("[data-repo]");
+  const apply = (card, pushed) => {
+    const label = $("[data-status]", card);
+    if (label && pushed) label.textContent = relativeTime(pushed);
+  };
+  cards.forEach((card) => apply(card, card.dataset.pushed));
+  try {
+    const response = await fetch(`https://api.github.com/users/${SITE.githubUser}/repos?per_page=100&sort=pushed`, {
+      headers: { Accept: "application/vnd.github+json" },
+    });
+    if (!response.ok) return;
+    const repos = await response.json();
+    cards.forEach((card) => {
+      const repo = repos.find((item) => item.name.toLowerCase() === card.dataset.repo.toLowerCase());
+      if (repo) apply(card, repo.pushed_at);
+    });
+  } catch {
+    return;
+  }
+}
+
+function initLightbox() {
+  const dialog = $("#lightbox");
+  const cards = $$(".vision-card");
+  if (!dialog || !cards.length) return;
+
+  function render(index) {
+    visionIndex = (index + cards.length) % cards.length;
+    const card = cards[visionIndex];
+    const image = $("#lb-image");
+    image.src = card.dataset.src;
+    image.alt = `${card.dataset.title} poster`;
+    $("#lb-title").textContent = card.dataset.title;
+    $("#lb-meta").textContent = card.dataset.meta;
+    $("#lb-pos").textContent = `${String(visionIndex + 1).padStart(2, "0")} / ${String(cards.length).padStart(2, "0")}`;
+  }
+
+  cards.forEach((card, index) =>
+    card.addEventListener("click", () => {
+      render(index);
+      if (!dialog.open) dialog.showModal();
+    }),
+  );
+  $("#lb-prev").addEventListener("click", () => render(visionIndex - 1));
+  $("#lb-next").addEventListener("click", () => render(visionIndex + 1));
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (!dialog.open) return;
+    if (event.key === "ArrowLeft") render(visionIndex - 1);
+    if (event.key === "ArrowRight") render(visionIndex + 1);
+  });
+}
+
+function initContactActions() {
+  $("#copy-email").addEventListener("click", async () => {
+    try {
+      await copyText(SITE.email);
+      showToast("Email copied to clipboard");
+    } catch {
+      showToast(SITE.email);
+    }
+  });
+
+  $("#share-recruiter").addEventListener("click", async () => {
+    const url = new URL(SITE.publicUrl);
+    url.searchParams.set("view", "recruiter");
+    try {
+      await copyText(url.href);
+      showToast("Recruiter link copied");
+    } catch {
+      showToast(url.href);
+    }
+  });
 }
 
 function init() {
-  setRecruiterView();
-  renderNarrative(PROFILE.fallbackRepos);
-  refreshGitHub();
-  setMobileShareVisibility();
-
-  $("#last-updated").textContent = new Intl.DateTimeFormat("en", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  }).format(new Date());
-
-  $("#refresh-github").addEventListener("click", () => refreshGitHub({ announce: true }));
-  $$("[data-share-profile]").forEach((button) => button.addEventListener("click", shareProfile));
-  $$(".vision-card").forEach((card) => card.addEventListener("click", () => openVisionDirection(card)));
-  ["#vision-prev", "#vision-prev-copy"].forEach((selector) => $(selector).addEventListener("click", () => navigateVision(-1)));
-  ["#vision-next", "#vision-next-copy"].forEach((selector) => $(selector).addEventListener("click", () => navigateVision(1)));
-  document.addEventListener("keydown", handleVisionKeys);
-  window.addEventListener("scroll", setMobileShareVisibility, { passive: true });
-  $("#copy-link").addEventListener("click", async () => {
-    await copyText($("#share-url").value);
-    showToast("Recruiter URL copied.");
-  });
+  if (new URLSearchParams(window.location.search).get("view") === "recruiter") {
+    document.body.classList.add("recruiter-view");
+  }
+  initScrollEffects();
+  initReveal();
+  initCountUp();
+  initActiveNav();
+  initMenu();
+  initPointerEffects();
+  initFilters();
+  initRepoStatus();
+  initLightbox();
+  initContactActions();
 }
 
 init();
