@@ -3,633 +3,574 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nilim Maitra · Frontend &amp; Creative Developer</title>
     <meta
       name="description"
-      content="Nilim Maitra is a product-minded software developer and synthetic vision director building useful web experiences and deliberate AI-directed visual systems."
+      content="Nilim Maitra builds interactive web apps with UI/UX, motion, and 3D at the center. Flagship work: Brickflux, Aural, and Matchbox Simulator."
     />
-    <meta name="theme-color" content="#f4f3ee" />
-    <meta property="og:title" content="Nilim Maitra · Software Developer" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:title" content="Nilim Maitra · Frontend &amp; Creative Developer" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://broad-art-3e62.maitranilim.workers.dev/" />
+    <meta property="og:url" content="https://nilimmaitra.vercel.app/" />
     <meta
       property="og:description"
-      content="A recruiter-friendly view of Nilim's shipped products, synthetic visual direction, current focus, and core expertise."
+      content="Interactive web apps with UI/UX, motion, and 3D at the center. See the flagship projects and get in touch."
     />
-    <meta property="og:image" content="https://broad-art-3e62.maitranilim.workers.dev/og-image.png" />
+    <meta property="og:image" content="https://nilimmaitra.vercel.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>Nilim Maitra · Software Developer</title>
-    <link rel="canonical" href="https://broad-art-3e62.maitranilim.workers.dev/" />
+    <link rel="canonical" href="https://nilimmaitra.vercel.app/" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (error) {
+          theme = null;
+        }
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.classList.add("js");
+      })();
+    </script>
     <script src="app.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nilim Maitra",
+        "jobTitle": "Frontend & Creative Developer",
+        "url": "https://nilimmaitra.vercel.app/",
+        "email": "mailto:nishan.engg@outlook.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Kolkata", "addressCountry": "IN" },
+        "sameAs": [
+          "https://github.com/maitranilim",
+          "https://www.linkedin.com/in/nilim-maitra-608b952b7/"
+        ]
+      }
+    </script>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+      <symbol id="i-arrow" viewBox="0 0 20 20"><path d="M5 15 15 5m0 0H7m8 0v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="i-right" viewBox="0 0 20 20"><path d="M4 10h12m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="i-check" viewBox="0 0 20 20"><path d="m4.5 10.5 3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /><circle cx="12" cy="9.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8" /></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8" fill="none" stroke="currentColor" stroke-width="1.8" /></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.2 8.2 0 1 0 20 14.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /></symbol>
+      <symbol id="i-up" viewBox="0 0 20 20"><path d="M10 16V4m-5 5 5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+    </svg>
 
-    <div class="page-glow" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Nilim Maitra, home">
-        <img
-          class="profile-photo profile-photo-header"
-          src="assets/profile-photo.webp"
-          alt=""
-          width="50"
-          height="50"
-        />
-        <span class="brand-copy">
-          <strong>Nilim Maitra</strong>
-          <span>Software developer</span>
-        </span>
+    <header class="site-header" id="site-header">
+      <a class="brand" href="#top" aria-label="Nilim Maitra, back to top">
+        <img src="assets/profile-photo.webp" alt="" width="40" height="40" />
+        <span><strong>Nilim Maitra</strong><small>Frontend &amp; creative developer</small></span>
       </a>
-
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="#flagship" data-nav>Flagship</a>
+        <a href="#projects" data-nav>Projects</a>
+        <a href="#skills" data-nav>Skills</a>
+        <a href="#visuals" data-nav data-visuals>Visuals</a>
+        <a href="#background" data-nav>Background</a>
+        <a href="#contact" data-nav>Contact</a>
+      </nav>
       <div class="header-actions">
-        <button class="source-pill" id="refresh-github" type="button" aria-label="Refresh live GitHub data">
-          <span class="source-dot" aria-hidden="true"></span>
-          <span id="source-status">Syncing GitHub · LinkedIn verified</span>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="i-sun" aria-hidden="true"><use href="#i-sun" /></svg>
+          <svg class="i-moon" aria-hidden="true"><use href="#i-moon" /></svg>
         </button>
-        <button class="button button-primary button-small" data-share-profile type="button">
-          <svg aria-hidden="true" viewBox="0 0 20 20">
-            <path d="M14.5 6.5 10 2m4.5 4.5L10 11m4.5-4.5H7.75A3.75 3.75 0 0 0 4 10.25V17" />
-          </svg>
-          <span>Share with recruiter</span>
+        <a class="btn btn-primary btn-sm" href="#contact" data-magnetic>Get in touch</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+          <span></span><span></span>
         </button>
       </div>
     </header>
 
-    <main id="main-content">
-      <section class="hero section-shell" id="top">
-        <div class="hero-copy">
-          <div class="availability"><span aria-hidden="true"></span> Open to entry-level software roles</div>
-          <p class="eyebrow">Product-minded developer · Synthetic vision director · Kolkata, India</p>
-          <h1>I turn complex ideas into <em>clear, useful</em> digital experiences.</h1>
-          <p class="hero-lede">
-            Computer Science graduate combining front-end engineering, API-driven products, and
-            AI-directed visual systems to build experiences people understand quickly and remember.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-dark" href="#peak-achievements">
-              Explore the proof
-              <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M4 10h12m-5-5 5 5-5 5" /></svg>
-            </a>
-            <button class="text-button" data-share-profile type="button">
-              Share recruiter view
-              <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M4 10h12m-5-5 5 5-5 5" /></svg>
-            </button>
-          </div>
-          <div class="hero-proof" aria-label="Career highlights">
-            <div>
-              <strong>3</strong>
-              <span>Live products shipped</span>
-            </div>
-            <div>
-              <strong>2253</strong>
-              <span>All India coding rank</span>
-            </div>
-            <div>
-              <strong>4 mo.</strong>
-              <span>NxtWave internship</span>
-            </div>
-          </div>
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-bg" aria-hidden="true">
+          <span class="orb orb-a" data-parallax="0.12"></span>
+          <span class="orb orb-b" data-parallax="-0.08"></span>
+          <span class="grid-fade"></span>
         </div>
-
-        <aside class="recruiter-brief" aria-label="Recruiter brief">
-          <div class="brief-topline">
-            <span>Recruiter brief</span>
-            <span class="brief-number">01 / 03</span>
-          </div>
-          <div class="brief-orbit" aria-hidden="true">
-            <span class="orbit-core">NM</span>
-            <span class="orbit-dot orbit-dot-one"></span>
-            <span class="orbit-dot orbit-dot-two"></span>
-            <span class="orbit-dot orbit-dot-three"></span>
-          </div>
-          <p class="brief-statement">A builder who thinks in systems and communicates in pictures.</p>
-          <ul class="brief-list">
-            <li><span>01</span> Ships responsive, API-powered web products</li>
-            <li><span>02</span> Directs AI imagery across distinct art movements</li>
-            <li><span>03</span> Brings product taste to technical execution</li>
-          </ul>
-          <div class="brief-footer">
-            <span>Best fit</span>
-            <strong>Frontend · Product Engineering · Creative Tech</strong>
-          </div>
-        </aside>
-      </section>
-
-      <section class="signal-strip" aria-label="Profile sources">
-        <p><span>Live narrative</span> Built from public code signals and verified career milestones.</p>
-        <div>
-          <a href="https://github.com/maitranilim" target="_blank" rel="noreferrer">GitHub</a>
-          <span aria-hidden="true">↗</span>
-          <a href="https://www.linkedin.com/in/nilim-maitra-608b952b7/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <span aria-hidden="true">↗</span>
-        </div>
-      </section>
-
-      <section class="content-section section-shell" id="peak-achievements">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow"><span>01</span> Peak achievements</p>
-            <h2>Proof over promises.</h2>
-          </div>
-          <p>
-            The clearest signals of how I learn, build, and deliver, selected for impact and backed by
-            visible outcomes.
-          </p>
-        </div>
-
-        <div class="achievement-grid">
-          <article class="achievement-card achievement-featured">
-            <div class="achievement-meta">
-              <span class="tag tag-accent">Shipped work</span>
-              <span>3 live products</span>
-            </div>
-            <div>
-              <p class="achievement-kicker">From idea to working interface</p>
-              <h3>Built practical web products around discovery, culture, and inspiration.</h3>
-              <p>
-                Designed, coded, and deployed three browser experiences using JavaScript, public APIs,
-                responsive layouts, and thoughtful interaction design.
-              </p>
-            </div>
-            <div class="project-list" id="project-list" aria-live="polite">
-              <a class="project-row" href="https://audio-magic-sigma.vercel.app" target="_blank" rel="noreferrer">
-                <span class="project-icon music-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-                <span>
-                  <strong>Music Genre Finder</strong>
-                  <small>Search + client-side audio analysis</small>
-                </span>
-                <span class="project-arrow">↗</span>
-              </a>
-              <a class="project-row" href="https://moodboard-ai-delta.vercel.app" target="_blank" rel="noreferrer">
-                <span class="project-icon grid-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-                <span>
-                  <strong>Moodboard AI</strong>
-                  <small>Text-driven visual discovery</small>
-                </span>
-                <span class="project-arrow">↗</span>
-              </a>
-              <a class="project-row" href="https://memeception.vercel.app/" target="_blank" rel="noreferrer">
-                <span class="project-icon meme-icon" aria-hidden="true"></span>
-                <span>
-                  <strong>Memeception</strong>
-                  <small>Motion-first, real-time meme discovery</small>
-                </span>
-                <span class="project-arrow">↗</span>
-              </a>
-            </div>
-          </article>
-
-          <article class="achievement-card achievement-rank">
-            <div class="achievement-meta">
-              <span class="tag">Problem solving</span>
-              <span>2023</span>
-            </div>
-            <div class="rank-mark" aria-label="All India rank 2253">
-              <span>AIR</span>
-              <strong>2253</strong>
-            </div>
-            <div>
-              <h3>Earned an All India rank in the Coding Ninjas Premier League.</h3>
-              <p>A competitive signal of structured thinking, persistence, and core programming fundamentals.</p>
-            </div>
-          </article>
-
-          <article class="achievement-card achievement-internship">
-            <div class="achievement-meta">
-              <span class="tag">Professional</span>
-              <span>Feb–May 2024</span>
-            </div>
-            <div class="timeline-mark" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
-            </div>
-            <div>
-              <p class="metric">4-month internship</p>
-              <h3>Made DSA learning content easier to understand at NxtWave.</h3>
-              <p>
-                Turned technical concepts into educational presentations and diagrams while delivering
-                across teams and tight timelines.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-section focus-section" id="current-focus">
-        <div class="section-shell">
-          <div class="section-heading section-heading-light">
-            <div>
-              <p class="eyebrow"><span>02</span> Current focus</p>
-              <h2>What I am building now.</h2>
-            </div>
-            <p>
-              A focused practice connecting interactive products, AI-assisted visual direction, and
-              the frontend systems that make both feel intentional.
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="chip chip-live"><span class="pulse" aria-hidden="true"></span> Open to entry-level software roles</p>
+            <h1>I build interactive web apps where <em>the details</em> do the talking.</h1>
+            <p class="lede">
+              Frontend developer with UI/UX at the center: a hover that helps, a transition that
+              explains, a page that responds as you explore it. Based in Kolkata, India.
             </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#flagship" data-magnetic>
+                See flagship work
+                <svg class="i" aria-hidden="true"><use href="#i-right" /></svg>
+              </a>
+              <a class="btn btn-ghost" href="mailto:nishan.engg@outlook.com?subject=Hello%20Nilim" data-magnetic>
+                <svg class="i" aria-hidden="true"><use href="#i-mail" /></svg>
+                Email me
+              </a>
+            </div>
+            <dl class="proof" aria-label="Highlights">
+              <div><dt><span data-count="7">7</span></dt><dd>Projects built</dd></div>
+              <div><dt><span data-count="2253">2253</span></dt><dd>All India Rank, Coding Ninjas 2023</dd></div>
+              <div><dt><span data-count="4">4</span> mo.</dt><dd>Internship at NxtWave</dd></div>
+            </dl>
           </div>
 
-          <div class="focus-layout">
-            <div class="focus-stack" id="focus-stack" aria-live="polite">
-              <article class="focus-card">
-                <span class="focus-index">01</span>
-                <div>
-                  <p>Interactive products</p>
-                  <h3>Playful, API-led experiences</h3>
-                  <span>Memeception · Moodboard AI · Motion-first interfaces</span>
-                </div>
-                <div class="focus-meter"><span style="--meter: 82%"></span></div>
-              </article>
-              <article class="focus-card">
-                <span class="focus-index">02</span>
-                <div>
-                  <p>Synthetic vision</p>
-                  <h3>AI-directed visual systems</h3>
-                  <span>Prompt craft · Art movements · Campaign direction</span>
-                </div>
-                <div class="focus-meter"><span style="--meter: 72%"></span></div>
-              </article>
-              <article class="focus-card">
-                <span class="focus-index">03</span>
-                <div>
-                  <p>Product craft</p>
-                  <h3>Responsive frontend systems</h3>
-                  <span>JavaScript · Web APIs · Layout · Deployment</span>
-                </div>
-                <div class="focus-meter"><span style="--meter: 66%"></span></div>
-              </article>
+          <div class="hero-visual" aria-label="Preview of the Brickflux game">
+            <div class="frame" data-tilt>
+              <div class="frame-bar" aria-hidden="true">
+                <i></i><i></i><i></i>
+                <span>brickflux.vercel.app</span>
+              </div>
+              <img
+                src="assets/projects/brickflux.webp"
+                alt="Brickflux gameplay: a green Builder and a red Breaker fight over a grid of bricks"
+                width="600"
+                height="450"
+                fetchpriority="high"
+              />
             </div>
-
-            <aside class="activity-panel">
-              <div class="activity-heading">
-                <span>Live code signal</span>
-                <span class="live-dot">Live</span>
-              </div>
-              <div class="activity-chart" aria-hidden="true">
-                <span style="--h: 38%"></span>
-                <span style="--h: 54%"></span>
-                <span style="--h: 31%"></span>
-                <span style="--h: 72%"></span>
-                <span style="--h: 58%"></span>
-                <span style="--h: 88%"></span>
-                <span style="--h: 68%"></span>
-                <span style="--h: 94%"></span>
-              </div>
-              <dl class="activity-stats">
-                <div>
-                  <dt>Recent public repos</dt>
-                  <dd id="repo-count">2</dd>
-                </div>
-                <div>
-                  <dt>Leading code signal</dt>
-                  <dd id="leading-language">JavaScript</dd>
-                </div>
-                <div>
-                  <dt>Latest push</dt>
-                  <dd id="latest-push">Checking…</dd>
-                </div>
-              </dl>
-              <a class="panel-link" href="https://github.com/maitranilim?tab=repositories" target="_blank" rel="noreferrer">
-                Inspect the code
-                <span>↗</span>
-              </a>
-            </aside>
+            <span class="float-chip fc-1" data-parallax="0.05"><b>Live</b> Brickflux</span>
+            <span class="float-chip fc-2" data-parallax="-0.06">React · TypeScript</span>
+            <span class="float-chip fc-3" data-parallax="0.08">Three.js · Physics</span>
           </div>
         </div>
       </section>
 
-      <section class="content-section vision-section" id="synthetic-vision">
-        <div class="section-shell">
-          <div class="vision-heading">
-            <div>
-              <p class="eyebrow"><span>03</span> Synthetic vision director</p>
-              <h2>One prompt is never the point. The art direction is.</h2>
-            </div>
-            <div class="vision-intro">
-              <p>
-                A curated study in using generative image tools with deliberate references, visual
-                constraints, typography, composition, and campaign thinking.
+      <div class="marquee" aria-label="Technologies">
+        <div class="marquee-track" aria-hidden="true">
+          <span>React</span><span>TypeScript</span><span>JavaScript</span><span>Three.js</span><span>Canvas 2D</span><span>Tailwind</span><span>Vite</span><span>Playwright</span><span>GitHub Actions</span><span>Vercel</span><span>Accessibility</span>
+          <span>React</span><span>TypeScript</span><span>JavaScript</span><span>Three.js</span><span>Canvas 2D</span><span>Tailwind</span><span>Vite</span><span>Playwright</span><span>GitHub Actions</span><span>Vercel</span><span>Accessibility</span>
+        </div>
+      </div>
+
+      <section class="section" id="flagship">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <p class="eyebrow">Flagship projects</p>
+            <h2>Three projects that show how I think and build.</h2>
+            <p>
+              A game with tested physics and shareable state, a full-stack app that classifies music
+              honestly, and a 3D physics sandbox. Each one is playable or readable in minutes.
+            </p>
+          </header>
+
+          <article class="flagship reveal">
+            <a class="flagship-media spot" href="https://brickflux.vercel.app/" target="_blank" rel="noreferrer" aria-label="Open Brickflux">
+              <div class="frame" data-tilt>
+                <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>brickflux.vercel.app</span></div>
+                <img src="assets/projects/brickflux-still.webp" alt="Brickflux round in progress" width="600" height="450" loading="lazy" />
+              </div>
+            </a>
+            <div class="flagship-copy">
+              <p class="flagship-meta"><span class="num">01</span> Interactive game · Canvas 2D</p>
+              <h3>Brickflux</h3>
+              <p class="summary">
+                Order vs Chaos in the browser. A Builder and a Breaker bounce around a brick grid and
+                you set the rules: speed, round length, chaos.
               </p>
-              <dl>
-                <div><dt>8</dt><dd>Selected directions</dd></div>
-                <div><dt>6+</dt><dd>Visual languages</dd></div>
-                <div><dt>1</dt><dd>Consistent taste</dd></div>
-              </dl>
+              <ul class="points">
+                <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Seeded challenge links replay the same grid with the same settings for anyone who opens them.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Sub-stepped physics so fast balls never tunnel through bricks.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Keyboard and screen-reader friendly, with Playwright tests in CI on every pull request.</li>
+              </ul>
+              <ul class="stack" aria-label="Tech stack"><li>JavaScript</li><li>Canvas 2D</li><li>Playwright</li><li>GitHub Actions</li><li>Vercel</li></ul>
+              <div class="actions">
+                <a class="btn btn-primary" href="https://brickflux.vercel.app/" target="_blank" rel="noreferrer" data-magnetic>Play it <svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+                <a class="btn btn-ghost" href="https://github.com/maitranilim/make-or-break" target="_blank" rel="noreferrer" data-magnetic>View code <svg class="i" aria-hidden="true"><use href="#i-github" /></svg></a>
+              </div>
             </div>
+          </article>
+
+          <article class="flagship flip reveal">
+            <a class="flagship-media spot" href="https://github.com/maitranilim/aural-audio-engine" target="_blank" rel="noreferrer" aria-label="Open Aural on GitHub">
+              <div class="frame" data-tilt>
+                <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>Aural · Sonic taxonomy</span></div>
+                <img src="assets/projects/aural.webp" alt="Aural mapping Lean On by Major Lazer to EDM, Tropical House, Moombahton with 95% confidence" width="1088" height="555" loading="lazy" />
+              </div>
+            </a>
+            <div class="flagship-copy">
+              <p class="flagship-meta"><span class="num">02</span> Full-stack product · React + TypeScript</p>
+              <h3>Aural</h3>
+              <p class="summary">
+                Tells you where a song actually sits: genre, subgenre, and microgenre, instead of
+                stopping at “Dance”. Search a title or hold up your phone.
+              </p>
+              <ul class="points">
+                <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Shazam-style mic recognition via AudD, with a speech-to-text fallback when nothing matches.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Three levels that must all differ, plus a confidence score and an honest note when it is only a rough guess.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>All provider calls run server-side, so API keys never reach the browser.</li>
+              </ul>
+              <ul class="stack" aria-label="Tech stack"><li>React</li><li>TypeScript</li><li>TanStack Start</li><li>Tailwind</li><li>Zod</li></ul>
+              <div class="actions">
+                <a class="btn btn-primary" href="https://github.com/maitranilim/aural-audio-engine" target="_blank" rel="noreferrer" data-magnetic>View code <svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="flagship reveal">
+            <a class="flagship-media spot" href="https://matchbox-simulator.vercel.app" target="_blank" rel="noreferrer" aria-label="Open Matchbox Simulator">
+              <div class="frame" data-tilt>
+                <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>matchbox-simulator.vercel.app</span></div>
+                <div class="match-art" role="img" aria-label="Illustration of a lit match, a candle, and rising embers">
+                  <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="ma-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050505" /><stop offset="1" stop-color="#10201f" /></linearGradient>
+                      <radialGradient id="ma-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffd60a" stop-opacity="0.5" /><stop offset="1" stop-color="#ffd60a" stop-opacity="0" /></radialGradient>
+                      <linearGradient id="ma-flame" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffb300" /><stop offset="0.6" stop-color="#ffd60a" /><stop offset="1" stop-color="#fffbd1" /></linearGradient>
+                    </defs>
+                    <rect width="600" height="400" fill="url(#ma-bg)" />
+                    <ellipse class="ma-pulse" cx="300" cy="170" rx="210" ry="150" fill="url(#ma-glow)" />
+                    <rect x="0" y="330" width="600" height="70" fill="#000" />
+                    <g transform="translate(120 250) rotate(-8)">
+                      <rect width="150" height="72" rx="8" fill="#e8f7f4" />
+                      <rect y="26" width="150" height="20" fill="#22d3c1" />
+                      <rect x="14" y="52" width="56" height="8" rx="3" fill="#0a0a0a" opacity="0.35" />
+                    </g>
+                    <g transform="translate(335 238)">
+                      <rect x="-22" y="40" width="44" height="52" rx="6" fill="#f4efe6" />
+                      <rect x="-1.5" y="18" width="3" height="24" fill="#1a1a1a" />
+                      <path class="ma-flame" d="M0 -20c10 14 12 22 0 38-12-16-10-24 0-38Z" fill="url(#ma-flame)" />
+                    </g>
+                    <g transform="translate(222 150) rotate(28)">
+                      <rect x="-3" y="0" width="6" height="110" rx="3" fill="#d9b277" />
+                      <ellipse cx="0" cy="-4" rx="8" ry="10" fill="#22d3c1" />
+                      <path class="ma-flame ma-flame-b" d="M0 -26c9 12 11 20 0 34-11-14-9-22 0-34Z" transform="rotate(-28)" fill="url(#ma-flame)" />
+                    </g>
+                    <g fill="#ffd60a">
+                      <circle class="ma-ember e1" cx="290" cy="170" r="3" />
+                      <circle class="ma-ember e2" cx="320" cy="180" r="2.5" />
+                      <circle class="ma-ember e3" cx="350" cy="165" r="2" />
+                      <circle class="ma-ember e4" cx="305" cy="150" r="2" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </a>
+            <div class="flagship-copy">
+              <p class="flagship-meta"><span class="num">03</span> 3D physics sandbox · Three.js + Rapier</p>
+              <h3>Matchbox Simulator</h3>
+              <p class="summary">
+                A small fire lab. Strike a match, open the cupboard, and watch how everyday objects
+                react to an open flame.
+              </p>
+              <ul class="points">
+                <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Rigid-body physics with real masses in grams and real gravity, so objects collide instead of passing through.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Every item behaves differently: steel wool gains weight as it burns, flour dust explodes, water on hot oil erupts.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>A safe way to see why you never put water on an oil fire.</li>
+              </ul>
+              <ul class="stack" aria-label="Tech stack"><li>Three.js</li><li>Rapier</li><li>Vite</li><li>Vercel</li></ul>
+              <div class="actions">
+                <a class="btn btn-primary" href="https://matchbox-simulator.vercel.app" target="_blank" rel="noreferrer" data-magnetic>Try it <svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+                <a class="btn btn-ghost" href="https://github.com/maitranilim/matchbox-simulator" target="_blank" rel="noreferrer" data-magnetic>View code <svg class="i" aria-hidden="true"><use href="#i-github" /></svg></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-tint" id="projects">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <p class="eyebrow">More projects</p>
+            <h2>Smaller builds, same attention to detail.</h2>
+            <p>Experiments and products across APIs, creative tools, and calm interfaces.</p>
+          </header>
+
+          <div class="filters reveal" role="group" aria-label="Filter projects">
+            <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter" data-filter="data" aria-pressed="false">Data &amp; APIs</button>
+            <button type="button" class="filter" data-filter="creative" aria-pressed="false">Creative</button>
+            <button type="button" class="filter" data-filter="3d" aria-pressed="false">3D</button>
           </div>
 
+          <div class="project-grid" id="project-grid">
+            <article class="card spot reveal" data-cat="data creative" data-repo="moodboard-ai" data-pushed="2026-09-25T15:27:01Z">
+              <div class="card-top">
+                <span class="card-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <span class="status" data-status>Active</span>
+              </div>
+              <h3>Moodboard AI</h3>
+              <p>Type a feeling, get a moodboard. A 183-mood lexicon, live images from open archives, and a page palette derived from the mood in OKLCH.</p>
+              <ul class="stack stack-sm"><li>JavaScript</li><li>OKLCH</li><li>Open APIs</li></ul>
+              <div class="card-links">
+                <a href="https://moodboard-ai-delta.vercel.app" target="_blank" rel="noreferrer">Live <svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+                <a href="https://github.com/maitranilim/moodboard-ai" target="_blank" rel="noreferrer">Code <svg class="i" aria-hidden="true"><use href="#i-github" /></svg></a>
+              </div>
+            </article>
+
+            <article class="card spot reveal" data-cat="data" data-repo="memeception" data-pushed="2026-09-29T19:55:51Z">
+              <div class="card-top">
+                <span class="card-icon card-icon-smile" aria-hidden="true">:)</span>
+                <span class="status" data-status>Active</span>
+              </div>
+              <h3>Memeception</h3>
+              <p>Pick a category, hit Gimme Meme, and save favourites. Fallback sources, light and dark modes, and a Next.js rebuild with a ⌘K palette.</p>
+              <ul class="stack stack-sm"><li>JavaScript</li><li>Next.js</li><li>REST</li></ul>
+              <div class="card-links">
+                <a href="https://memeception.vercel.app" target="_blank" rel="noreferrer">Live <svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+                <a href="https://github.com/maitranilim/memeception" target="_blank" rel="noreferrer">Code <svg class="i" aria-hidden="true"><use href="#i-github" /></svg></a>
+              </div>
+            </article>
+
+            <article class="card spot reveal" data-cat="creative" data-repo="inner-sanctuary-reparenting" data-pushed="2026-10-02T14:23:34Z">
+              <div class="card-top">
+                <span class="card-icon card-icon-breath" aria-hidden="true"><b></b></span>
+                <span class="status" data-status>Active</span>
+              </div>
+              <h3>Inner Sanctuary</h3>
+              <p>A calm space for reflection: guided dialogue, a breathing studio, and gentle play. No accounts, no third-party requests, reduced-motion aware.</p>
+              <ul class="stack stack-sm"><li>JavaScript</li><li>Accessibility</li><li>Playwright</li></ul>
+              <div class="card-links">
+                <a href="https://github.com/maitranilim/inner-sanctuary-reparenting" target="_blank" rel="noreferrer">Code <svg class="i" aria-hidden="true"><use href="#i-github" /></svg></a>
+              </div>
+            </article>
+
+            <article class="card spot reveal" data-cat="3d creative" data-repo="Nobius" data-pushed="2026-10-02T14:32:56Z">
+              <div class="card-top">
+                <span class="card-icon card-icon-orbit" aria-hidden="true"><b></b></span>
+                <span class="status" data-status>Active</span>
+              </div>
+              <h3>Nobius</h3>
+              <p>A 360° alien world exploration experience with relaxing visuals and audio.</p>
+              <ul class="stack stack-sm"><li>360°</li><li>Audio</li><li>Visuals</li></ul>
+              <div class="card-links">
+                <a href="https://github.com/maitranilim/Nobius" target="_blank" rel="noreferrer">Code <svg class="i" aria-hidden="true"><use href="#i-github" /></svg></a>
+              </div>
+            </article>
+
+            <a class="card card-cta spot reveal" href="https://github.com/maitranilim?tab=repositories" target="_blank" rel="noreferrer" data-cat="all data creative 3d">
+              <span class="card-cta-kicker">GitHub</span>
+              <h3>Browse every repository</h3>
+              <p>Commit history, READMEs, and work in progress.</p>
+              <span class="card-cta-arrow"><svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <p class="eyebrow">Skills</p>
+            <h2>What I bring to a team.</h2>
+            <p>Taken from the projects above, not from a keyword list.</p>
+          </header>
+          <div class="skill-grid">
+            <article class="skill spot reveal">
+              <h3>Frontend &amp; interaction</h3>
+              <p>Interfaces where motion, accessibility, and performance are designed in.</p>
+              <ul class="stack"><li>React</li><li>TypeScript</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Tailwind</li><li>Canvas 2D</li></ul>
+            </article>
+            <article class="skill spot reveal">
+              <h3>3D &amp; physics</h3>
+              <p>Real-time scenes with believable behaviour.</p>
+              <ul class="stack"><li>Three.js</li><li>Rapier</li><li>Vite</li></ul>
+            </article>
+            <article class="skill spot reveal">
+              <h3>APIs &amp; data</h3>
+              <p>Products built on public data, with fallbacks when a service fails.</p>
+              <ul class="stack"><li>REST APIs</li><li>TanStack Start</li><li>Zod</li><li>Server-side keys</li></ul>
+            </article>
+            <article class="skill spot reveal">
+              <h3>Quality &amp; shipping</h3>
+              <p>Tests, typechecks, and CI before it goes out.</p>
+              <ul class="stack"><li>Playwright</li><li>GitHub Actions</li><li>ESLint &amp; Prettier</li><li>Vercel</li></ul>
+            </article>
+            <article class="skill spot reveal">
+              <h3>Creative direction</h3>
+              <p>Prompt systems and art direction shaped into coherent campaign worlds.</p>
+              <ul class="stack"><li>Art direction</li><li>Prompt craft</li><li>Editorial composition</li></ul>
+            </article>
+            <article class="skill skill-note spot reveal">
+              <h3>How I work</h3>
+              <p>I use AI tools for parts of my workflow. I build, review, and maintain every project here.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark" id="visuals">
+        <div class="wrap">
+          <header class="section-head section-head-light reveal">
+            <p class="eyebrow">Synthetic vision</p>
+            <h2>One prompt is never the point. The art direction is.</h2>
+            <p>
+              Eight directed studies: references, typography, composition, and campaign thinking
+              applied to generative image tools. Click any poster to explore it.
+            </p>
+          </header>
           <div class="vision-grid">
-            <button
-              class="vision-card"
-              type="button"
-              data-vision-src="assets/synthetic-vision/poster-01.jpg"
-              data-vision-title="Neo Futures"
-              data-vision-meta="Cyberpunk editorial · Interface fiction · Fashion campaign"
-            >
-              <span class="vision-frame">
-                <img src="assets/synthetic-vision/poster-01.jpg" alt="Neo Futures cyberpunk editorial poster" />
-                <span class="vision-open">View direction</span>
-              </span>
-              <span class="vision-caption"><span>01 · Interface fiction</span><strong>Neo Futures</strong></span>
+            <button class="vision-card reveal" type="button" data-src="assets/synthetic-vision/poster-01.jpg" data-title="Neo Futures" data-meta="Cyberpunk editorial · Interface fiction · Fashion campaign">
+              <img src="assets/synthetic-vision/poster-01.jpg" alt="Neo Futures cyberpunk editorial poster" loading="lazy" />
+              <span class="vision-cap"><small>01 · Interface fiction</small><strong>Neo Futures</strong></span>
             </button>
-
-            <button
-              class="vision-card"
-              type="button"
-              data-vision-src="assets/synthetic-vision/poster-02.jpg"
-              data-vision-title="Future Studies"
-              data-vision-meta="International typographic style · Speculative systems · Print texture"
-            >
-              <span class="vision-frame">
-                <img src="assets/synthetic-vision/poster-02.jpg" alt="Future Studies speculative design poster" />
-                <span class="vision-open">View direction</span>
-              </span>
-              <span class="vision-caption"><span>02 · Speculative systems</span><strong>Future Studies</strong></span>
+            <button class="vision-card reveal" type="button" data-src="assets/synthetic-vision/poster-02.jpg" data-title="Future Studies" data-meta="International typographic style · Speculative systems · Print texture">
+              <img src="assets/synthetic-vision/poster-02.jpg" alt="Future Studies speculative design poster" loading="lazy" />
+              <span class="vision-cap"><small>02 · Speculative systems</small><strong>Future Studies</strong></span>
             </button>
-
-            <button
-              class="vision-card"
-              type="button"
-              data-vision-src="assets/synthetic-vision/poster-03.jpg"
-              data-vision-title="Neo Tokyo Circuit"
-              data-vision-meta="Cyberpunk esports · Glitch graphics · Event identity"
-            >
-              <span class="vision-frame">
-                <img src="assets/synthetic-vision/poster-03.jpg" alt="Neo Tokyo cyberpunk esports tournament poster" />
-                <span class="vision-open">View direction</span>
-              </span>
-              <span class="vision-caption"><span>03 · Esports identity</span><strong>Neo Tokyo Circuit</strong></span>
+            <button class="vision-card reveal" type="button" data-src="assets/synthetic-vision/poster-03.jpg" data-title="Neo Tokyo Circuit" data-meta="Cyberpunk esports · Glitch graphics · Event identity">
+              <img src="assets/synthetic-vision/poster-03.jpg" alt="Neo Tokyo cyberpunk esports tournament poster" loading="lazy" />
+              <span class="vision-cap"><small>03 · Esports identity</small><strong>Neo Tokyo Circuit</strong></span>
             </button>
-
-            <button
-              class="vision-card"
-              type="button"
-              data-vision-src="assets/synthetic-vision/poster-04.jpg"
-              data-vision-title="Mech Wargear"
-              data-vision-meta="Tech noir editorial · Cockpit storytelling · Industrial detail"
-            >
-              <span class="vision-frame">
-                <img src="assets/synthetic-vision/poster-04.jpg" alt="Mech Wargear tech noir magazine cover" />
-                <span class="vision-open">View direction</span>
-              </span>
-              <span class="vision-caption"><span>04 · Tech noir editorial</span><strong>Mech Wargear</strong></span>
+            <button class="vision-card reveal" type="button" data-src="assets/synthetic-vision/poster-04.jpg" data-title="Mech Wargear" data-meta="Tech noir editorial · Cockpit storytelling · Industrial detail">
+              <img src="assets/synthetic-vision/poster-04.jpg" alt="Mech Wargear tech noir magazine cover" loading="lazy" />
+              <span class="vision-cap"><small>04 · Tech noir editorial</small><strong>Mech Wargear</strong></span>
             </button>
-
-            <button
-              class="vision-card"
-              type="button"
-              data-vision-src="assets/synthetic-vision/poster-05.jpg"
-              data-vision-title="Sad Robot Club"
-              data-vision-meta="Risograph zine · Expressive character design · Mental health message"
-            >
-              <span class="vision-frame">
-                <img src="assets/synthetic-vision/poster-05.jpg" alt="Sad Robot Club risograph zine poster" />
-                <span class="vision-open">View direction</span>
-              </span>
-              <span class="vision-caption"><span>05 · Risograph zine</span><strong>Sad Robot Club</strong></span>
+            <button class="vision-card reveal" type="button" data-src="assets/synthetic-vision/poster-05.jpg" data-title="Sad Robot Club" data-meta="Risograph zine · Expressive character design · Mental health message">
+              <img src="assets/synthetic-vision/poster-05.jpg" alt="Sad Robot Club risograph zine poster" loading="lazy" />
+              <span class="vision-cap"><small>05 · Risograph zine</small><strong>Sad Robot Club</strong></span>
             </button>
-
-            <button
-              class="vision-card"
-              type="button"
-              data-vision-src="assets/synthetic-vision/poster-06.jpg"
-              data-vision-title="It Is OK to Feel Everything"
-              data-vision-meta="Surrealist collage · Editorial empathy · Poetic storytelling"
-            >
-              <span class="vision-frame">
-                <img src="assets/synthetic-vision/poster-06.jpg" alt="Surrealist mental health collage poster" />
-                <span class="vision-open">View direction</span>
-              </span>
-              <span class="vision-caption"><span>06 · Surrealist collage</span><strong>Feel Everything</strong></span>
+            <button class="vision-card reveal" type="button" data-src="assets/synthetic-vision/poster-06.jpg" data-title="It Is OK to Feel Everything" data-meta="Surrealist collage · Editorial empathy · Poetic storytelling">
+              <img src="assets/synthetic-vision/poster-06.jpg" alt="Surrealist mental health collage poster" loading="lazy" />
+              <span class="vision-cap"><small>06 · Surrealist collage</small><strong>Feel Everything</strong></span>
             </button>
-
-            <button
-              class="vision-card"
-              type="button"
-              data-vision-src="assets/synthetic-vision/poster-07.jpg"
-              data-vision-title="Where Silence Floats"
-              data-vision-meta="Dreamlike collage · Poetic futurism · Soft editorial palette"
-            >
-              <span class="vision-frame">
-                <img src="assets/synthetic-vision/poster-07.jpg" alt="Dreamlike underwater helicopter collage poster" />
-                <span class="vision-open">View direction</span>
-              </span>
-              <span class="vision-caption"><span>07 · Poetic futurism</span><strong>Where Silence Floats</strong></span>
+            <button class="vision-card reveal" type="button" data-src="assets/synthetic-vision/poster-07.jpg" data-title="Where Silence Floats" data-meta="Dreamlike collage · Poetic futurism · Soft editorial palette">
+              <img src="assets/synthetic-vision/poster-07.jpg" alt="Dreamlike underwater helicopter collage poster" loading="lazy" />
+              <span class="vision-cap"><small>07 · Poetic futurism</small><strong>Where Silence Floats</strong></span>
             </button>
-
-            <button
-              class="vision-card"
-              type="button"
-              data-vision-src="assets/synthetic-vision/poster-08.jpg"
-              data-vision-title="Luxe Vita"
-              data-vision-meta="Art deco advertising · Luxury product staging · Brand campaign"
-            >
-              <span class="vision-frame vision-frame-contained">
-                <img src="assets/synthetic-vision/poster-08.jpg" alt="Art deco luxury multivitamin campaign poster" />
-                <span class="vision-open">View direction</span>
-              </span>
-              <span class="vision-caption"><span>08 · Art deco campaign</span><strong>Luxe Vita</strong></span>
+            <button class="vision-card reveal" type="button" data-src="assets/synthetic-vision/poster-08.jpg" data-title="Luxe Vita" data-meta="Art deco advertising · Luxury product staging · Brand campaign">
+              <img src="assets/synthetic-vision/poster-08.jpg" alt="Art deco luxury multivitamin campaign poster" loading="lazy" />
+              <span class="vision-cap"><small>08 · Art deco campaign</small><strong>Luxe Vita</strong></span>
             </button>
-          </div>
-
-          <div class="vision-footer">
-            <p>
-              The through-line: translating a loose idea into a coherent visual world with a clear
-              audience, mood, material language, and hierarchy.
-            </p>
-            <span>Prompt systems · Art direction · Editorial composition · Campaign thinking</span>
           </div>
         </div>
       </section>
 
-      <section class="content-section section-shell" id="core-expertise">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow"><span>04</span> Core expertise</p>
-            <h2>Strongest where logic meets clarity.</h2>
-          </div>
-          <p>
-            A practical combination of engineering fundamentals, product sense, and communication skill
-            that helps teams move from idea to understandable output.
-          </p>
-        </div>
-
-        <div class="expertise-grid">
-          <article class="expertise-card">
-            <div class="expertise-number">01</div>
-            <svg class="expertise-icon" aria-hidden="true" viewBox="0 0 48 48">
-              <rect x="6" y="8" width="36" height="31" rx="4"></rect>
-              <path d="M6 16h36M13 12h.01M18 12h.01M23 12h.01M14 24l5 4-5 4m9 0h10"></path>
-            </svg>
-            <p class="expertise-label">Build</p>
-            <h3>Frontend engineering</h3>
-            <p>Responsive interfaces with clean structure, accessible interactions, and deliberate visual hierarchy.</p>
-            <ul class="skill-pills">
-              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Responsive UI</li>
-            </ul>
-          </article>
-
-          <article class="expertise-card">
-            <div class="expertise-number">02</div>
-            <svg class="expertise-icon" aria-hidden="true" viewBox="0 0 48 48">
-              <circle cx="13" cy="24" r="6"></circle>
-              <circle cx="35" cy="13" r="6"></circle>
-              <circle cx="35" cy="35" r="6"></circle>
-              <path d="m18 21 11-5m-11 11 11 5"></path>
-            </svg>
-            <p class="expertise-label">Connect</p>
-            <h3>API-led products</h3>
-            <p>Useful browser products shaped around public data, client-side logic, and clear feedback loops.</p>
-            <ul class="skill-pills">
-              <li>Web APIs</li><li>JSON</li><li>Async JS</li><li>Deployment</li>
-            </ul>
-          </article>
-
-          <article class="expertise-card expertise-card-accent">
-            <div class="expertise-number">03</div>
-            <svg class="expertise-icon" aria-hidden="true" viewBox="0 0 48 48">
-              <path d="M8 38V12a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v26"></path>
-              <path d="M15 31V20m9 11V14m9 17v-7M6 38h36"></path>
-            </svg>
-            <p class="expertise-label">Direct</p>
-            <h3>Synthetic visual direction</h3>
-            <p>Prompt systems and visual references shaped into distinct editorial, campaign, and narrative worlds.</p>
-            <ul class="skill-pills">
-              <li>Prompt craft</li><li>Art direction</li><li>Editorial design</li><li>Visual storytelling</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="milestone-panel">
-          <div class="milestone-intro">
-            <p class="eyebrow">Career milestones</p>
-            <h3>A foundation built across code, communication, and consistent learning.</h3>
-            <a href="https://www.linkedin.com/in/nilim-maitra-608b952b7/" target="_blank" rel="noreferrer">
-              View verified LinkedIn
-              <span>↗</span>
-            </a>
-          </div>
-          <ol class="milestone-list">
-            <li>
-              <span class="milestone-year">2023</span>
-              <div><strong>AIR 2253</strong><p>Coding Ninjas Premier League</p></div>
+      <section class="section" id="background">
+        <div class="wrap narrow">
+          <header class="section-head reveal">
+            <p class="eyebrow">Background</p>
+            <h2>A foundation built on code, communication, and consistent learning.</h2>
+          </header>
+          <ol class="timeline" id="timeline">
+            <li class="reveal">
+              <span class="t-year">2023</span>
+              <div><h3>All India Rank 2253</h3><p>Coding Ninjas Premier League. A competitive signal of structured thinking and core programming fundamentals.</p></div>
             </li>
-            <li>
-              <span class="milestone-year">2024</span>
-              <div><strong>Presentation Specialist Intern</strong><p>NxtWave Disruptive Technologies</p></div>
+            <li class="reveal">
+              <span class="t-year">Feb–May 2024</span>
+              <div><h3>Presentation Specialist Intern</h3><p>NxtWave Disruptive Technologies. Turned DSA concepts into clear presentations and diagrams across teams and tight timelines.</p></div>
             </li>
-            <li>
-              <span class="milestone-year">2025</span>
-              <div><strong>B.Tech, Computer Science</strong><p>KIIT · CGPA 7.56/10</p></div>
+            <li class="reveal">
+              <span class="t-year">2025</span>
+              <div><h3>B.Tech, Computer Science</h3><p>KIIT · CGPA 7.56/10.</p></div>
             </li>
-            <li>
-              <span class="milestone-year">Now</span>
-              <div><strong>Building visual-first product experiences</strong><p>Frontend · Generative image direction · Creative tech</p></div>
+            <li class="reveal is-now">
+              <span class="t-year">Now</span>
+              <div><h3>Building interactive, visual-first web apps</h3><p>Brickflux, Aural, Matchbox Simulator, and the projects above.</p></div>
             </li>
           </ol>
+          <p class="link-row reveal">
+            <a href="https://www.linkedin.com/in/nilim-maitra-608b952b7/" target="_blank" rel="noreferrer">View full profile on LinkedIn <svg class="i" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          </p>
         </div>
       </section>
 
-      <section class="closing-section">
-        <div class="section-shell closing-inner">
-          <div>
-            <p class="eyebrow">The short version</p>
-            <h2>I care about the code, the interface, and whether the idea lands.</h2>
-          </div>
-          <div class="closing-copy">
-            <p>
-              I am looking for a team where curiosity is useful, thoughtful execution matters, and an
-              early-career builder can own meaningful product work.
+      <section class="section contact" id="contact">
+        <div class="contact-bg" aria-hidden="true"><span class="orb orb-c" data-parallax="0.06"></span></div>
+        <div class="wrap contact-grid">
+          <div class="reveal">
+            <p class="eyebrow eyebrow-light">Contact</p>
+            <h2>Let’s build something people remember.</h2>
+            <p class="lede">
+              I’m looking for an entry-level software role on a team where curiosity is useful and
+              thoughtful execution matters. Email is the fastest way to reach me.
             </p>
-            <div class="closing-actions">
-              <a
-                class="button button-light"
-                href="mailto:nishan.engg@outlook.com?subject=Portfolio%20conversation%20with%20Nilim%20Maitra"
-                aria-label="Email Nilim Maitra"
-              >Start a conversation</a>
-              <button class="button button-outline-light" data-share-profile type="button">Share with recruiter</button>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mailto:nishan.engg@outlook.com?subject=Portfolio%20conversation%20with%20Nilim%20Maitra" data-magnetic>
+                <svg class="i" aria-hidden="true"><use href="#i-mail" /></svg>
+                Email Nilim
+              </a>
+              <button class="btn btn-outline" id="copy-email" type="button" data-magnetic>
+                <svg class="i" aria-hidden="true"><use href="#i-copy" /></svg>
+                Copy email
+              </button>
             </div>
           </div>
+          <ul class="contact-list reveal">
+            <li>
+              <a class="contact-row" href="mailto:nishan.engg@outlook.com">
+                <span class="contact-icon"><svg class="i" aria-hidden="true"><use href="#i-mail" /></svg></span>
+                <span><small>Email</small><strong>nishan.engg@outlook.com</strong></span>
+                <svg class="i go" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+            </li>
+            <li>
+              <a class="contact-row" href="https://www.linkedin.com/in/nilim-maitra-608b952b7/" target="_blank" rel="noreferrer">
+                <span class="contact-icon"><svg class="i" aria-hidden="true"><use href="#i-linkedin" /></svg></span>
+                <span><small>LinkedIn</small><strong>nilim-maitra</strong></span>
+                <svg class="i go" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+            </li>
+            <li>
+              <a class="contact-row" href="https://github.com/maitranilim" target="_blank" rel="noreferrer">
+                <span class="contact-icon"><svg class="i" aria-hidden="true"><use href="#i-github" /></svg></span>
+                <span><small>GitHub</small><strong>@maitranilim</strong></span>
+                <svg class="i go" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+            </li>
+            <li>
+              <div class="contact-row contact-static">
+                <span class="contact-icon"><svg class="i" aria-hidden="true"><use href="#i-pin" /></svg></span>
+                <span><small>Location</small><strong>Kolkata, India</strong></span>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer section-shell">
-      <div>
-        <img
-          class="profile-photo profile-photo-footer"
-          src="assets/profile-photo.webp"
-          alt="Nilim Maitra"
-          width="30"
-          height="30"
-          loading="lazy"
-        />
-        <p>Nilim Maitra · Software developer with a visual mind.</p>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>© 2026 Nilim Maitra</p>
+        <button class="link-btn" id="share-recruiter" type="button">Copy recruiter link</button>
+        <a href="#top">Back to top</a>
       </div>
-      <nav aria-label="Social links">
-        <a href="mailto:nishan.engg@outlook.com">Email</a>
-        <a href="https://github.com/maitranilim" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/nilim-maitra-608b952b7/" target="_blank" rel="noreferrer">LinkedIn</a>
-      </nav>
-      <p class="footer-note">Narrative refreshed <span id="last-updated">today</span>.</p>
     </footer>
 
-    <button class="mobile-share" data-share-profile type="button">
-      <svg aria-hidden="true" viewBox="0 0 20 20">
-        <path d="M14.5 6.5 10 2m4.5 4.5L10 11m4.5-4.5H7.75A3.75 3.75 0 0 0 4 10.25V17" />
-      </svg>
-      Share recruiter view
+    <button class="to-top" id="to-top" type="button" aria-label="Back to top">
+      <svg class="i" aria-hidden="true"><use href="#i-up" /></svg>
     </button>
 
-    <dialog class="vision-dialog" id="vision-dialog">
-      <form method="dialog">
-        <button class="dialog-close vision-dialog-close" value="close" aria-label="Close visual direction">X</button>
-      </form>
-      <div class="vision-dialog-image">
-        <img id="vision-dialog-image" src="assets/synthetic-vision/poster-01.jpg" alt="" />
-        <button class="vision-nav vision-nav-prev" id="vision-prev" type="button" aria-label="Previous poster">
-          <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M12.5 4.5 7 10l5.5 5.5" /></svg>
-        </button>
-        <button class="vision-nav vision-nav-next" id="vision-next" type="button" aria-label="Next poster">
-          <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m7.5 4.5 5.5 5.5-5.5 5.5" /></svg>
-        </button>
+    <dialog class="lightbox" id="lightbox" aria-label="Poster viewer">
+      <form method="dialog"><button class="lb-close" value="close" aria-label="Close viewer">×</button></form>
+      <div class="lb-image">
+        <img id="lb-image" src="assets/synthetic-vision/poster-01.jpg" alt="" />
+        <button class="lb-nav lb-prev" id="lb-prev" type="button" aria-label="Previous poster">‹</button>
+        <button class="lb-nav lb-next" id="lb-next" type="button" aria-label="Next poster">›</button>
       </div>
-      <div class="vision-dialog-copy">
-        <div class="vision-dialog-topline">
-          <p class="eyebrow">Synthetic vision direction</p>
-          <span id="vision-dialog-position">01 / 08</span>
-        </div>
-        <h2 id="vision-dialog-title">Neo Futures</h2>
-        <p id="vision-dialog-meta">Cyberpunk editorial · Interface fiction · Fashion campaign</p>
-        <div class="vision-dialog-controls" aria-label="Poster catalogue navigation">
-          <button id="vision-prev-copy" type="button" aria-label="Previous poster">← Previous</button>
-          <button id="vision-next-copy" type="button" aria-label="Next poster">Next →</button>
-        </div>
+      <div class="lb-copy">
+        <span id="lb-pos">01 / 08</span>
+        <h3 id="lb-title">Neo Futures</h3>
+        <p id="lb-meta"></p>
       </div>
-    </dialog>
-
-    <dialog class="share-dialog" id="share-dialog">
-      <form method="dialog">
-        <button class="dialog-close" value="close" aria-label="Close share dialog">×</button>
-      </form>
-      <span class="dialog-success" aria-hidden="true">✓</span>
-      <p class="eyebrow">Recruiter view ready</p>
-      <h2>Your clean profile link is ready to send.</h2>
-      <p id="share-message">The recruiter URL has been copied. It opens a focused, mobile-friendly view of this page.</p>
-      <label for="share-url">Recruiter URL</label>
-      <div class="copy-field">
-        <input id="share-url" type="text" readonly />
-        <button class="button button-dark" id="copy-link" type="button">Copy again</button>
-      </div>
-      <small id="share-note">Deploy this folder to a public host once; after that, the same one-click share action sends the public URL.</small>
     </dialog>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <noscript>
-      <p class="noscript-note">JavaScript is disabled, so the live GitHub signals and one-click share action are showing their verified fallback state.</p>
+      <p class="noscript">JavaScript is off, so animations and filters are disabled. All content is still available.</p>
     </noscript>
   </body>
 </html>
