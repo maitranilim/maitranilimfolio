@@ -7,6 +7,7 @@ A responsive, recruiter-friendly static portfolio.
 - Skills grouped by what each project demonstrates
 - A curated Synthetic Vision gallery with a keyboard-friendly poster viewer
 - Scroll progress, reveal animations, tilt and spotlight hovers, and magnetic buttons, all disabled for visitors who prefer reduced motion
+- A light and dark theme toggle (turquoise, yellow, black, and white) that follows the system setting until a visitor picks one
 - A focused recruiter view at `?view=recruiter` that hides the gallery
 
 ## Run locally

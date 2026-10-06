@@ -157,6 +157,46 @@ function initActiveNav() {
   });
 }
 
+function initTheme() {
+  const root = document.documentElement;
+  const toggle = $("#theme-toggle");
+  const meta = $('meta[name="theme-color"]');
+  const colors = { light: "#ffffff", dark: "#0a0a0a" };
+
+  function apply(theme) {
+    root.setAttribute("data-theme", theme);
+    toggle.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+    toggle.setAttribute("aria-pressed", String(theme === "dark"));
+    if (meta) meta.setAttribute("content", colors[theme]);
+  }
+
+  apply(root.getAttribute("data-theme") === "dark" ? "dark" : "light");
+
+  toggle.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    if (!reducedMotion) {
+      root.classList.add("theme-anim");
+      setTimeout(() => root.classList.remove("theme-anim"), 450);
+    }
+    apply(next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch {
+      return;
+    }
+  });
+
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+    let saved = null;
+    try {
+      saved = localStorage.getItem("theme");
+    } catch {
+      saved = null;
+    }
+    if (!saved) apply(event.matches ? "dark" : "light");
+  });
+}
+
 function initMenu() {
   const toggle = $("#menu-toggle");
   const nav = $("#nav");
@@ -336,6 +376,7 @@ function init() {
   initReveal();
   initCountUp();
   initActiveNav();
+  initTheme();
   initMenu();
   initPointerEffects();
   initFilters();

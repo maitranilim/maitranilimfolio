@@ -8,7 +8,7 @@
       name="description"
       content="Nilim Maitra builds interactive web apps with UI/UX, motion, and 3D at the center. Flagship work: Brickflux, Aural, and Matchbox Simulator."
     />
-    <meta name="theme-color" content="#0b2a2d" />
+    <meta name="theme-color" content="#ffffff" />
     <meta property="og:title" content="Nilim Maitra · Frontend &amp; Creative Developer" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://broad-art-3e62.maitranilim.workers.dev/" />
@@ -30,7 +30,19 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script>
-      document.documentElement.classList.add("js");
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (error) {
+          theme = null;
+        }
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.classList.add("js");
+      })();
     </script>
     <script src="app.js" defer></script>
     <script type="application/ld+json">
@@ -59,6 +71,8 @@
       <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></symbol>
       <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></symbol>
       <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8" fill="none" stroke="currentColor" stroke-width="1.8" /></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.2 8.2 0 1 0 20 14.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /></symbol>
       <symbol id="i-up" viewBox="0 0 20 20"><path d="M10 16V4m-5 5 5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></symbol>
     </svg>
 
@@ -79,6 +93,10 @@
         <a href="#contact" data-nav>Contact</a>
       </nav>
       <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="i-sun" aria-hidden="true"><use href="#i-sun" /></svg>
+          <svg class="i-moon" aria-hidden="true"><use href="#i-moon" /></svg>
+        </button>
         <a class="btn btn-primary btn-sm" href="#contact" data-magnetic>Get in touch</a>
         <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
           <span></span><span></span>
@@ -217,17 +235,17 @@
                 <div class="match-art" role="img" aria-label="Illustration of a lit match, a candle, and rising embers">
                   <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                     <defs>
-                      <linearGradient id="ma-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#06201f" /><stop offset="1" stop-color="#0d3b3a" /></linearGradient>
-                      <radialGradient id="ma-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffb347" stop-opacity="0.55" /><stop offset="1" stop-color="#ffb347" stop-opacity="0" /></radialGradient>
-                      <linearGradient id="ma-flame" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff7a18" /><stop offset="0.6" stop-color="#ffc247" /><stop offset="1" stop-color="#fff3b0" /></linearGradient>
+                      <linearGradient id="ma-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050505" /><stop offset="1" stop-color="#10201f" /></linearGradient>
+                      <radialGradient id="ma-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffd60a" stop-opacity="0.5" /><stop offset="1" stop-color="#ffd60a" stop-opacity="0" /></radialGradient>
+                      <linearGradient id="ma-flame" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffb300" /><stop offset="0.6" stop-color="#ffd60a" /><stop offset="1" stop-color="#fffbd1" /></linearGradient>
                     </defs>
                     <rect width="600" height="400" fill="url(#ma-bg)" />
                     <ellipse class="ma-pulse" cx="300" cy="170" rx="210" ry="150" fill="url(#ma-glow)" />
-                    <rect x="0" y="330" width="600" height="70" fill="#041615" />
+                    <rect x="0" y="330" width="600" height="70" fill="#000" />
                     <g transform="translate(120 250) rotate(-8)">
                       <rect width="150" height="72" rx="8" fill="#e8f7f4" />
-                      <rect y="26" width="150" height="20" fill="#14c8b0" />
-                      <rect x="14" y="52" width="56" height="8" rx="3" fill="#0b2a2d" opacity="0.35" />
+                      <rect y="26" width="150" height="20" fill="#22d3c1" />
+                      <rect x="14" y="52" width="56" height="8" rx="3" fill="#0a0a0a" opacity="0.35" />
                     </g>
                     <g transform="translate(335 238)">
                       <rect x="-22" y="40" width="44" height="52" rx="6" fill="#f4efe6" />
@@ -236,10 +254,10 @@
                     </g>
                     <g transform="translate(222 150) rotate(28)">
                       <rect x="-3" y="0" width="6" height="110" rx="3" fill="#d9b277" />
-                      <ellipse cx="0" cy="-4" rx="8" ry="10" fill="#cc3333" />
+                      <ellipse cx="0" cy="-4" rx="8" ry="10" fill="#22d3c1" />
                       <path class="ma-flame ma-flame-b" d="M0 -26c9 12 11 20 0 34-11-14-9-22 0-34Z" transform="rotate(-28)" fill="url(#ma-flame)" />
                     </g>
-                    <g fill="#ffd27a">
+                    <g fill="#ffd60a">
                       <circle class="ma-ember e1" cx="290" cy="170" r="3" />
                       <circle class="ma-ember e2" cx="320" cy="180" r="2.5" />
                       <circle class="ma-ember e3" cx="350" cy="165" r="2" />
