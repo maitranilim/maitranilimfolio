@@ -6,65 +6,98 @@ const PROFILE = {
   publicUrl: "https://broad-art-3e62.maitranilim.workers.dev/",
   pinnedProjects: [
     {
-      name: "Memeception",
-      description: "Motion-first, real-time meme discovery in a playful 3D interface.",
-      homepage: "https://memeception.vercel.app/",
+      name: "make-or-break",
+      title: "Brickflux",
+      description: "Canvas game where a Builder and Breaker compete for the grid, with seeded challenge links.",
+      homepage: "https://brickflux.vercel.app/",
     },
     {
-      name: "Music-Genre-Finder",
-      description: "Music discovery and client-side audio analysis in the browser.",
-      homepage: "https://audio-magic-sigma.vercel.app",
+      name: "aural-audio-engine",
+      title: "Aural",
+      description: "Maps a song from genre to subgenre to microgenre, with data sources and confidence shown.",
+      homepage: "https://github.com/maitranilim/aural-audio-engine",
+    },
+    {
+      name: "matchbox-simulator",
+      title: "Matchbox Simulator",
+      description: "3D browser sandbox for fire, physics, and object interactions.",
+      homepage: "https://matchbox-simulator.vercel.app",
     },
     {
       name: "moodboard-ai",
-      description: "A text-driven moodboard interface for visual inspiration.",
+      title: "Moodboard AI",
+      description: "Type a feeling and get a moodboard, with the page colours derived from the mood.",
       homepage: "https://moodboard-ai-delta.vercel.app",
     },
   ],
   fallbackRepos: [
     {
-      name: "Memeception",
-      description: "Motion-first, real-time meme discovery in a playful 3D interface.",
-      html_url: "https://memeception.vercel.app/",
-      homepage: "https://memeception.vercel.app/",
+      name: "make-or-break",
+      description: "Canvas game where a Builder and Breaker compete for the grid.",
+      html_url: "https://github.com/maitranilim/make-or-break",
+      homepage: "https://brickflux.vercel.app/",
       language: "JavaScript",
-      size: 1100,
+      size: 1000,
       stargazers_count: 0,
       fork: false,
-      pushed_at: "2026-06-01T00:00:00Z",
-      topics: ["reddit-api", "motion", "javascript"],
+      pushed_at: "2026-09-30T18:38:39Z",
+      topics: ["canvas", "game", "javascript"],
     },
     {
-      name: "Music-Genre-Finder",
-      description: "Music discovery and client-side audio analysis in the browser.",
-      html_url: "https://github.com/maitranilim/Music-Genre-Finder",
-      homepage: "https://audio-magic-sigma.vercel.app",
-      language: "JavaScript",
-      size: 1260,
+      name: "aural-audio-engine",
+      description: "Genre, subgenre, and microgenre lineage for any song.",
+      html_url: "https://github.com/maitranilim/aural-audio-engine",
+      homepage: "",
+      language: "TypeScript",
+      size: 1000,
       stargazers_count: 0,
       fork: false,
-      pushed_at: "2026-03-01T00:00:00Z",
-      topics: ["web-api", "audio", "javascript"],
+      pushed_at: "2026-10-01T13:49:13Z",
+      topics: ["react", "typescript", "audio"],
+    },
+    {
+      name: "matchbox-simulator",
+      description: "3D browser sandbox for fire, physics, and object interactions.",
+      html_url: "https://github.com/maitranilim/matchbox-simulator",
+      homepage: "https://matchbox-simulator.vercel.app",
+      language: "JavaScript",
+      size: 1000,
+      stargazers_count: 0,
+      fork: false,
+      pushed_at: "2026-09-26T18:01:37Z",
+      topics: ["threejs", "physics", "3d"],
     },
     {
       name: "moodboard-ai",
-      description: "A text-driven moodboard interface for visual inspiration.",
+      description: "Type a feeling and get a moodboard.",
       html_url: "https://github.com/maitranilim/moodboard-ai",
       homepage: "https://moodboard-ai-delta.vercel.app",
       language: "JavaScript",
       size: 940,
       stargazers_count: 0,
       fork: false,
-      pushed_at: "2026-02-01T00:00:00Z",
+      pushed_at: "2026-09-25T15:27:01Z",
       topics: ["design", "frontend", "javascript"],
+    },
+    {
+      name: "memeception",
+      description: "Pick a category, hit Gimme Meme, and save the ones you want to revisit.",
+      html_url: "https://github.com/maitranilim/memeception",
+      homepage: "https://memeception.vercel.app",
+      language: "JavaScript",
+      size: 1100,
+      stargazers_count: 0,
+      fork: false,
+      pushed_at: "2026-09-29T19:55:51Z",
+      topics: ["reddit-api", "motion", "javascript"],
     },
   ],
 };
 
 const BUILDING_NOW = [
   {
-    label: "Playful, API-led experiences",
-    detail: "Memeception · Moodboard AI · Motion-first interfaces",
+    label: "Playful, motion-led web apps",
+    detail: "Brickflux · Matchbox Simulator · Memeception",
     kind: "Interactive products",
   },
   {
@@ -73,8 +106,8 @@ const BUILDING_NOW = [
     kind: "Synthetic vision",
   },
   {
-    label: "Responsive frontend systems",
-    detail: "JavaScript · Web APIs · Layout · Deployment",
+    label: "UI/UX, 3D, and performance",
+    detail: "React · TypeScript · Three.js · Accessibility",
     kind: "Product craft",
   },
 ];
@@ -147,7 +180,7 @@ function createProjectIcon(index, name) {
   const normalizedName = name.toLowerCase();
   const iconClass = normalizedName.includes("meme")
     ? "meme-icon"
-    : normalizedName.includes("music")
+    : normalizedName.includes("aural") || normalizedName.includes("music")
       ? "music-icon"
       : "grid-icon";
   icon.className = `project-icon ${iconClass}`;
@@ -177,7 +210,7 @@ function renderProjects(repos) {
     const text = document.createElement("span");
     const title = document.createElement("strong");
     const detail = document.createElement("small");
-    title.textContent = formatRepoName(repo.name);
+    title.textContent = repo.title || formatRepoName(repo.name);
     detail.textContent = repo.description || `${repo.language || "Web"} project · recently updated`;
     text.append(title, detail);
 
